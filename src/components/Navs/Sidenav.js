@@ -1,24 +1,42 @@
-import React from 'react'
-import {  GiHamburgerMenu} from "react-icons/gi";
+import React from "react";
+import { GiHamburgerMenu } from "react-icons/gi";
+import { Link, useLocation } from "react-router-dom";
 
 const Sidenav = () => {
-  return (
-    <aside className='flex justify-center w-1/12 max-w-1/12 px-10 py-10 border border-gray-30  md:text-lg  h-screen fixed top-0 left-0  '>
-      <ul className=' space-y-3 '>
-        <li className='w-full p-3  mb-10  flex justify-center items-center rounded-md text-xl bg-purple-mid  '>
-        <i className='text-blue-mid text-3xl'><GiHamburgerMenu  className='gi ' /></i>
-        </li>
-        <li  className='w-full p-5 rounded  flex justify-center items-center text-xl bg-purple-mid  '>
-         <i className='text-white text-3xl'>
-          <GiHamburgerMenu className='gi ' />
-          </i>
-        </li>
-        <li  className='w-full p-5 rounded flex justify-center items-center  text-xl bg-purple-mid  '>
-        <i className='text-white text-3xl' ><GiHamburgerMenu className='gi' /></i>
-        </li>
-      </ul>
-    </aside>
-  )
-}
+	const location = useLocation();
+	console.log(location.pathname);
+	return (
+		<div className='h-screen fixed top-0 '>
+			<i className='text-blue-mid flex bg-purple-mid my-5 py-4 rounded-2xl justify-center text-3xl'>
+				<GiHamburgerMenu className='gi ' />
+			</i>
+			<ul className='p-4 space-y-3 h-[100vh] pt-6 flex flex-col rounded-3xl items-center bg-purple-mid'>
+				<li
+					className={`${
+						location.pathname === "/" &&
+						"text-blue-mid bg-blue-600  p-2 my-2 rounded-2xl"
+					}   flex justify-center items-center`}>
+					<Link to='/'>
+						<i className='text-white text-3xl'>
+							<GiHamburgerMenu className='gi' />
+						</i>
+					</Link>
+				</li>
 
-export default Sidenav
+				<li
+					className={`${
+						location.pathname === "/dashboard" &&
+						"text-blue-mid bg-blue-600  p-2 my-2 rounded-2xl"
+					}   flex justify-center items-center`}>
+					<Link to='/dashboard'>
+						<i className='text-white text-3xl'>
+							<GiHamburgerMenu className='gi' />
+						</i>
+					</Link>
+				</li>
+			</ul>
+		</div>
+	);
+};
+
+export default Sidenav;

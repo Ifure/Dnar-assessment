@@ -1,33 +1,33 @@
-import React from 'react'
+import React from "react";
 
-const MktLeaders = () => {
-  return (
-    <section className='w-4/6 max-w-4/6 p-3 rounded-md text-white h-128 overflow-auto ml-10 sm:ml-16 py-10  bg-purple-mid '>
-			
-			<ul className='w-full px-4 space-y-4'>
-			<h1 className='text-4xl mb-2 font-bold'>
-				Market Leaders
-			</h1>
-				<li className='bg-purple-light rounded-md cursor-pointer py-8 px-5 flex justify-between'>
-					<p className='font-bold text-lg '>Bitcoin(BTC)</p>
-					<p className='text-2xl font-bold'>$17,666</p>
-				</li>
-				<li className='bg-purple-light rounded-md cursor-pointer py-8 px-5 flex justify-between'>
-					<p className='font-bold text-lg '>Bitcoin(BTC)</p>
-					<p className='text-2xl font-bold'>$17,666</p>
-				</li>
-				<li className='bg-purple-light rounded-md cursor-pointer py-8 px-5 flex justify-between'>
-					<p className='font-bold text-lg '>Bitcoin(BTC)</p>
-					<p className='text-2xl font-bold'>$17,666</p>
-				</li>
-				<li className='bg-purple-light rounded-md cursor-pointer py-8 px-5 flex justify-between'>
-					<p className='font-bold text-lg '>Bitcoin(BTC)</p>
-					<p className='text-2xl font-bold'>$17,666</p>
-				</li>
-				
+const MktLeaders = ({ singleCryptoData, isLoading }) => {
+	console.log({singleCryptoData})
+	return (
+		<section className='w-full h-128 overflow-auto p-3 rounded-3xl text-white   py-10  bg-purple-mid '>
+			<ul className='w-full px-2 space-y-4'>
+				<h1 className='text-4xl mb-2 font-bold'>Market Leaders</h1>
+
+				{singleCryptoData &&
+					Object.entries(singleCryptoData.coins).map(([key, value], i) =>
+						i < 20 ? (
+							<React.Fragment key={key}>
+								<li className='bg-purple-light rounded-md cursor-pointer py-8 px-5 flex justify-between'>
+									<p className='font-bold text-lg '>
+										{value.name}({value.symbol})
+									</p>
+									<p className='text-2xl font-bold'>$17,666</p>
+								</li>
+							</React.Fragment>
+						) : (
+							""
+						)
+					)}
 			</ul>
-    </section>
-  )
-}
+			{isLoading && (
+				<h2 className='text-3xl text-center'>Loading Market Leaders</h2>
+			)}
+		</section>
+	);
+};
 
-export default MktLeaders
+export default MktLeaders;

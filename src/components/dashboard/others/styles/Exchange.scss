@@ -1,0 +1,20 @@
+.exchange-contents {
+	position: relative;
+	h2 {
+		color: white;
+	}
+	width: 40%;
+	@media screen and (max-width: 992px) {
+		width: 100%;
+	}
+}
+.exchange-contents::before {
+	display: block;
+	height: 10%;
+	content: " ";
+	border-left: 1px blueviolet solid;
+	border-left-width: 4px;
+	outline: none;
+	position: absolute;
+	top: 20px;
+}

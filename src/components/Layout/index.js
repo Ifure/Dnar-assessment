@@ -1,21 +1,22 @@
 import React from "react";
-import Events from "../dashboard/Overview/Events";
+// import { Navbar } from "../Navs/Navbar";
+
 import Sidenav from "../Navs/Sidenav";
 
-
 const Layout = ({ children }) => {
-  return (
-		<div className="w-full max-w-full mx-auto relative bg-purple-dark">
-		<div className="w-full flex border">
-			<div className=" w-full md:w-1/12 max-w-1/12 border border-black h-screen  ">
-				<Sidenav />
+	return (
+		<>
+			<div className='w-full flex py-5 px-8 bg-purple-dark'>
+				<aside className='hidden xl:block w-[102px] h-screen'>
+					<Sidenav />
+				</aside>
+				<section
+					className={`w-full xl:w-[calc(100%-102px)] md:pl-8  } h-[100%] `}>
+					<main className={`min-w-[calc(100%-102px)] }`}>{children}</main>
+				</section>
 			</div>
-			<div className="w-full md:w-8/12 max-w-8/12 bg-gray-00 border border-green-600">{children}</div>
-			<div  className="w-full md:w-3/12 max-w-3/12 bg-gray-00"><Events/></div>
-		</div>
-	</div>
-    
-  );
+		</>
+	);
 };
 
 export default Layout;

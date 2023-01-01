@@ -1,16 +1,13 @@
-import React from 'react'
-import Overview from '../components/dashboard/overview'
-import Layout from '../components/Layout'
-import SearchBar from '../components/Navs/Searchbar'
-import Navbar from '../components/Navs/Searchbar'
+import React from "react";
+import Overview from "../components/dashboard/Overview";
+import Layout from "../components/Layout";
 
 const IndexPage = () => {
-  return (
-    <Layout>
-        <SearchBar/>
-        <Overview/>
-    </Layout>
-  )
-}
+	return (
+		<Layout>
+			<Overview />
+		</Layout>
+	);
+};
 
-export default IndexPage
+export default IndexPage;
