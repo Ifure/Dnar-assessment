@@ -6,7 +6,7 @@ import Sidenav from "../Navs/Sidenav";
 const Layout = ({ children }) => {
 	return (
 		<>
-			<div className='w-full flex py-5 px-8 bg-purple-dark'>
+			<div className='w-full flex py-5 px-2 md:px-8 bg-purple-dark'>
 				<aside className='hidden xl:block w-[102px] h-screen'>
 					<Sidenav />
 				</aside>
